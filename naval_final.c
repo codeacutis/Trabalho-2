@@ -1,3 +1,4 @@
+//Equipe: Eduardo Brandão dos Santos, Guilherme Augusto Alves de Faria, João Pedro da Costa Figueiredo, João Pedro Rodrigues Vilas Boas, Lucas Joaquim de Oliveira Soares.
 #include <stdio.h>
 #include <string.h>
 
