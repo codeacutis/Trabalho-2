@@ -59,23 +59,23 @@ int main(){
   printf("\n%s posicione seu %do barco\n", jogador1, i+1);
   posicionarbarco(campo1, i); //Utilização de uma função usada para posicionar os barcos. Os parâmetros utilizados serão: a matriz "campo1" do 1º usuário e a variável de repetição que será incrementada a cada rodagem da estrutura e utilizada com valores indo de 0 até 3 dentro da função.
   }
-  for (int i=0; i<4; i++){
+  for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador fazer o posicionamento de seus barcos e ainda permite visualizar qual barco está posicionando.
   printf("\n%s posicione seu %do barco\n", jogador2, i+1);
-  posicionarbarco(campo2, i);
+  posicionarbarco(campo2, i); //Utilização de uma função usada para posicionar os barcos. Os parâmetros utilizados serão: a matriz "campo2" do 2º usuário e a variável de repetição que será incrementada a cada rodagem da estrutura e utilizada com valores indo de 0 até 3 dentro da função.
   }
- for (int i=0; i<4; i++){
-  printf("\n%s, faca sua %d jogada\n", jogador1, i+1);
-  pontos1 += jogadas(campo2);
+ for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
+  printf("\n%s, faca sua %d jogada\n", jogador1, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
+  pontos1 += jogadas(campo2);// Atribui a variavel de pontuação referente ao jogador 1, seus pontos que foram ganhos de acordo com suas jogadas.
   }
   
-  for (int i=0; i<4; i++){
-  printf("\n%s, faca sua %d jogada\n", jogador2, i+1);
-  pontos2 += jogadas(campo1);
+  for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
+  printf("\n%s, faca sua %d jogada\n", jogador2, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
+  pontos2 += jogadas(campo1);// Atribui a variavel de pontuação referente ao jogador 2, seus pontos que foram ganhos de acordo com suas jogadas.
   }
 
-  printf("\t\nPontuacao final:\t\n");
-  printf("%s: %d pontos\n",jogador1,pontos1);
-  printf("%s: %d pontos\n",jogador2,pontos2);
+  printf("\t\nPontuacao final:\t\n");//Estrutura responsavel por mostrar a pontuação geral de cada jogador, após suas jogadas.
+  printf("%s: %d pontos\n",jogador1,pontos1);//Estrutura responsavel por mostrar a pontuação geral do jogador 1
+  printf("%s: %d pontos\n",jogador2,pontos2);//Estrutura responsavel por mostrar a pontuação geral do jogador 2
 
   if(pontos1 > pontos2){ //condicional para verificar se o jogador1 ganhou.
     printf("\n%s EH O VENCEDOR!\n", jogador1);//Se sim, irá printar que ele é o vencedor.
