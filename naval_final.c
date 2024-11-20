@@ -38,25 +38,25 @@ void posicionarbarco(int campo[4][4], int n){
 }
 
 int main(){
-  int campo1 [4][4], campo2 [4][4];
-  char jogador1[61], jogador2[61];
-  int pontos1 = 0,pontos2 = 0;
-  printf("\n\t\t\tBATALHA NAVAL\t\t\t\n");
+  int campo1 [4][4], campo2 [4][4]; // Declara duas matrizes 4x4, para os campos dos dois jogadores.
+  char jogador1[61], jogador2[61]; // Declara arrays de caracteres para armazenar os nomes dos jogadores.
+  int pontos1 = 0,pontos2 = 0; // Atribui as variáveis para marcação de pontos dos jogadores, começando com 0 pontos para ambos.
+  printf("\n\t\t\tBATALHA NAVAL\t\t\t\n"); //Printa na tela o título do jogo.
   printf("\n\n\t---------------------------------------------\n\n");
-  printf("Jogador 1, digite seu nome: ");
-  scanf("%s", jogador1);
-  printf("Jogador 2, digite seu nome: ");
-  scanf("%s", jogador2);
-  for(int i = 0;i<4;i++){
-    for(int j =0;j<4;j++){
-        campo1[i][j] = 0;
-        campo2[i][j] = 0;
+  printf("Jogador 1, digite seu nome: "); //Permite com que o jogador 1 digite seu nome.
+  scanf("%s", jogador1); //Armazena o nome do jogador 1 na variável em questão, sendo do tipo "char".
+  printf("Jogador 2, digite seu nome: "); //Permite com que o jogador 2 digite seu nome.
+  scanf("%s", jogador2); //Armazena o nome do jogador 2 na variável em questão, sendo do tipo "char".
+  for(int i = 0;i<4;i++){ //Criação de uma estrutura de repetição para preencher as posições do campo do usuário com "0", inibindo que o programa preencha as posições não usadas com valores indefinidos. Esse laço é referente as linhas da matriz.
+    for(int j =0;j<4;j++){ //Laço referente à leitura das colunas da matriz.
+        campo1[i][j] = 0; //Preenche todos as posições da matriz "campo1" com o valor "0".
+        campo2[i][j] = 0; //Preenche todos as posições da matriz "campo2" com o valor "0".
     }
   }
   
-  for (int i=0; i<4; i++){
+  for (int i=0; i<4; i++){ //Estrutura de repetição que permite o jogador fazer o posicionamento de seus barcos e ainda permite visualizar qual barco está posicionando.
   printf("\n%s posicione seu %do barco\n", jogador1, i+1);
-  posicionarbarco(campo1, i);
+  posicionarbarco(campo1, i); //Utilização de uma função usada para posicionar os barcos. Os parâmetros utilizados serão: a matriz "campo1" do 1º usuário e a variável de repetição que será incrementada a cada rodagem da estrutura e utilizada com valores indo de 0 até 3 dentro da função.
   }
   for (int i=0; i<4; i++){
   printf("\n%s posicione seu %do barco\n", jogador2, i+1);
