@@ -4,15 +4,15 @@
 
 int jogadas(int campo[4][4]){
     int posicao_x,posicao_y;//define uma variavel para a coordenada x e y, indicando a posição das jogadas
-    while (1){//laço de repetição para serem feitas as jogadas
+    while (1){//laço de repetição para a jogada ser feita, sendo que o laço só é concluído quando a jogada estiver dentro das posições da matriz.
     printf("Posicao X: "); scanf("%d", &posicao_x);//printa na tela para indicar a ação que o usuário irá fazer e lê a informação escrita na poisção x
     printf("Posicao Y: "); scanf("%d", &posicao_y);//printa na tela para indicar a ação que o usuário irá fazer e lê a informação escrita na poisção y concluindo a coordenada da jogada
-    if (posicao_x>=0 && posicao_x<4 && posicao_y>=0 && posicao_y<4){//laço de comparação para contabilizar os pontos
+    if (posicao_x>=0 && posicao_x<4 && posicao_y>=0 && posicao_y<4){//laço de comparação para contabilizar os pontos. Caso o usuário digite uma jogada fora das posições da matriz, o usuário é levado para a mensagem posta na condição "else".
        if(campo[posicao_x][posicao_y]!=0){// se a coordenada indicada para a jogada for diferente de zero seguimos para o proximo passo
         int pontuacao = campo[posicao_x][posicao_y];// atribui o valor que esta na coordenada a quantidade de pontos
         printf("PONTUOU! Pontos: %d\n", pontuacao);//printa na tela a quantidade de pontos feitas na jogada
-        campo[posicao_x][posicao_y] = 0; // atribui valor 0 para retornar ao laço de repetição
-        return pontuacao;// retorna a pontuação feita, voltando ao laço de repetição
+        campo[posicao_x][posicao_y] = 0; // atribui valor 0 para a posição, a fim de que essa posição não conste pontos para uma jogada futura.
+        return pontuacao;// retorna a pontuação feita para a main, a qual, pela estrutura de repetição presente em seu escopo, irá fazer com que o usuário realize uma nova jogada até o limite máximo de jogadas.
     } else{// caso o requesito não se encaixe na comparação acima ele prosseguirá para a linha abaixo
       printf ("Nenhum barco nesta posicao. Pontuacao: 0.\n");// caso o jogador coloque uma coordenada que não possui barco na posição indicada
       return 0;//finaliza esse laço
@@ -65,12 +65,12 @@ int main(){
   }
  for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
   printf("\n%s, faca sua %d jogada\n", jogador1, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
-  pontos1 += jogadas(campo2);// Atribui a variavel de pontuação referente ao jogador 1, seus pontos que foram ganhos de acordo com suas jogadas.
+  pontos1 += jogadas(campo2);// Atribui a variavel de pontuação referente ao jogador 1, seus pontos que foram ganhos de acordo com suas jogadas, feitas na função "jogadas".
   }
   
   for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
-  printf("\n%s, faca sua %d jogada\n", jogador2, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
-  pontos2 += jogadas(campo1);// Atribui a variavel de pontuação referente ao jogador 2, seus pontos que foram ganhos de acordo com suas jogadas.
+  printf("\n%s, faca sua %d jogada\n", jogador2, i+1);//Estrutura responsavel por coletar a jogada do jogador 2
+  pontos2 += jogadas(campo1);// Atribui a variavel de pontuação referente ao jogador 2, seus pontos que foram ganhos de acordo com suas jogadas, feitas na função "jogadas".
   }
 
   printf("\t\nPontuacao final:\t\n");//Estrutura responsavel por mostrar a pontuação geral de cada jogador, após suas jogadas.
