@@ -24,16 +24,16 @@ int jogadas(int campo[4][4]){
 }
     
 void posicionarbarco(int campo[4][4], int n){
-   int posicao_x,posicao_y;
-    while(1){
-    printf("\nPosicao X: "); scanf("%d", &posicao_x);
-    printf("Posicao Y: "); scanf("%d", &posicao_y);
-    if (posicao_x >= 0 && posicao_x < 4 && posicao_y >= 0 && posicao_y < 4 && campo[posicao_x][posicao_y] == 0) {
-            campo[posicao_x][posicao_y] = n+1;
+   int posicao_x,posicao_y; //define uma variavel para a coordenada x e y, indicando a posição dos barcos
+    while(1){// laço de repetição para preencher a posição do barco
+    printf("\nPosicao X: "); scanf("%d", &posicao_x); // coordenada no eixo x ( linha ) do barco
+    printf("Posicao Y: "); scanf("%d", &posicao_y);// coordenada no eixo y ( coluna ) do barco
+    if (posicao_x >= 0 && posicao_x < 4 && posicao_y >= 0 && posicao_y < 4 && campo[posicao_x][posicao_y] == 0) { //laço de repetição para preencher toda matriz enquanto atender ao limite da mesma e o campo das posições estiverem zerados
+            campo[posicao_x][posicao_y] = n+1; // se atender o pre - requisito adicionar mais um
             n++;
             break;
         }else {
-            printf("\nPosicao invalida ou ja ocupada! Digite valores entre 0 e 3 para linha e coluna.\n");
+            printf("\nPosicao invalida ou ja ocupada! Digite valores entre 0 e 3 para linha e coluna.\n");// validando se a posição já está preenchida, ou se está errada, o própio código acusa e faz o usúario retornar a jogada
         }
     }
 }
