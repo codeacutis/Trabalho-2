@@ -9,7 +9,7 @@ int jogadas(int campo[4][4]){
     printf("Posicao Y: "); scanf("%d", &posicao_y);//printa na tela para indicar a ação que o usuário irá fazer e lê a informação escrita na poisção y concluindo a coordenada da jogada
     if (posicao_x>=0 && posicao_x<4 && posicao_y>=0 && posicao_y<4){//laço de comparação para contabilizar os pontos. Caso o usuário digite uma jogada fora das posições da matriz, o usuário é levado para a mensagem posta na condição "else".
        if(campo[posicao_x][posicao_y]!=0){// se a coordenada indicada para a jogada for diferente de zero seguimos para o proximo passo
-        int pontuacao = campo[posicao_x][posicao_y];// atribui o valor que esta na coordenada a quantidade de pontos
+        int pontuacao = campo[posicao_x][posicao_y];// atribui o valor que esta na coordenada a quantidade de pontos, que é o valor presente na posição da matriz que fora preenchida pela função "posicionarbarco".
         printf("PONTUOU! Pontos: %d\n", pontuacao);//printa na tela a quantidade de pontos feitas na jogada
         campo[posicao_x][posicao_y] = 0; // atribui valor 0 para a posição, a fim de que essa posição não conste pontos para uma jogada futura.
         return pontuacao;// retorna a pontuação feita para a main, a qual, pela estrutura de repetição presente em seu escopo, irá fazer com que o usuário realize uma nova jogada até o limite máximo de jogadas.
@@ -25,13 +25,12 @@ int jogadas(int campo[4][4]){
     
 void posicionarbarco(int campo[4][4], int n){
    int posicao_x,posicao_y; //define uma variavel para a coordenada x e y, indicando a posição dos barcos
-    while(1){// laço de repetição para preencher a posição do barco
+    while(1){// laço de repetição para preencher a posição do barco, sendo que o laço só é concluído quando o preenchimento estiver dentro das posições da matriz.
     printf("\nPosicao X: "); scanf("%d", &posicao_x); // coordenada no eixo x ( linha ) do barco
     printf("Posicao Y: "); scanf("%d", &posicao_y);// coordenada no eixo y ( coluna ) do barco
     if (posicao_x >= 0 && posicao_x < 4 && posicao_y >= 0 && posicao_y < 4 && campo[posicao_x][posicao_y] == 0) { //laço de repetição para preencher toda matriz enquanto atender ao limite da mesma e o campo das posições estiverem zerados
-            campo[posicao_x][posicao_y] = n+1; // se atender o pre - requisito adicionar mais um
-            n++;
-            break;
+            campo[posicao_x][posicao_y] = n+1; // se atender o pré-requisito, o programa armazena o valor da variável de controle advindo do laço de repetição na main +1 (n+1). Preenchendo cada posição com os valores 1,2,3 e 4, respectivamente.
+            break; //encerra a condição e a estrutura de repetição, permitindo com que um novo valor seja trazido para a função.
         }else {
             printf("\nPosicao invalida ou ja ocupada! Digite valores entre 0 e 3 para linha e coluna.\n");// validando se a posição já está preenchida, ou se está errada, o própio código acusa e faz o usúario retornar a jogada
         }
@@ -64,12 +63,12 @@ int main(){
   posicionarbarco(campo2, i); //Utilização de uma função usada para posicionar os barcos. Os parâmetros utilizados serão: a matriz "campo2" do 2º usuário e a variável de repetição que será incrementada a cada rodagem da estrutura e utilizada com valores indo de 0 até 3 dentro da função.
   }
  for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
-  printf("\n%s, faca sua %d jogada\n", jogador1, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
+  printf("\n%s, faca sua %da jogada\n", jogador1, i+1);//Estrutura responsavel por coletar a jogada do jogador 1
   pontos1 += jogadas(campo2);// Atribui a variavel de pontuação referente ao jogador 1, seus pontos que foram ganhos de acordo com suas jogadas, feitas na função "jogadas".
   }
   
   for (int i=0; i<4; i++){//Estrutura de repetição que permite o jogador realizar suas jogadas no campo adversario, para encontrar o navio.
-  printf("\n%s, faca sua %d jogada\n", jogador2, i+1);//Estrutura responsavel por coletar a jogada do jogador 2
+  printf("\n%s, faca sua %da jogada\n", jogador2, i+1);//Estrutura responsavel por coletar a jogada do jogador 2
   pontos2 += jogadas(campo1);// Atribui a variavel de pontuação referente ao jogador 2, seus pontos que foram ganhos de acordo com suas jogadas, feitas na função "jogadas".
   }
 
